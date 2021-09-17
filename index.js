@@ -7,12 +7,18 @@ app.get('/api/items', async (req, res) => {
 
     try{
 
-        const test = await getItems('vasos');
-        filterItems(test.data)
+        let response = await getItems('vasos');
+        const data = filterItems(response.data);
     
-        res.json({});
-    }catch(e){
-        console.log('error: ', e);
+        res.json({
+            status: 'OK',
+            data,
+        });
+    }catch(error){
+        res.json({
+            status: 'ERROR',
+            error
+        })
     }
 });
 
