@@ -7,7 +7,7 @@ const itemsSanitized = {
         lastname: 'Cotelesso'
     },
     categories: [],
-    items: []
+    items: [],
 }
 
 const filterItems = (items) => {
@@ -16,11 +16,11 @@ const filterItems = (items) => {
         if (!items.results.length) {
             throw 'No se encontraron resultados'
         }
-        const categories = items.filters[0].values[0].path_from_root.map((e) => e.name);
-        itemsSanitized.categories = categories;
+        const categories = items.filters[0]?.values[0]?.path_from_root.map((e) => e.name);
+        itemsSanitized.categories = categories ? categories : [];
     
         const products = items.results.map(({
-            id, title, prices, thumbnail, attributes, shipping 
+            id, title, prices, thumbnail, attributes, shipping, seller_address
         }) => {
             const { currency, amount, decimals } = parsePrice(prices.prices[0])
             const condition = getCondition(attributes);
@@ -35,7 +35,8 @@ const filterItems = (items) => {
                 },
                 picture: thumbnail,
                 condition,
-                free_shiping: shipping.free_shipping
+                free_shiping: shipping.free_shipping,
+                seller_address: seller_address.state.name
             }
         });
     

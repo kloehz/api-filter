@@ -7,13 +7,12 @@ const app = express();
 app.use(cors());
 
 app.get('/api/items', async (req, res) => {
-
     try{
         let response = await getItems(req.query);
         const data = filterItems(response.data);
-        res.json(data);
+        res.status(200).json(data);
     }catch(error){
-        res.json({
+        res.status(500).json({
             status: 'ERROR',
             error,
             data: []
