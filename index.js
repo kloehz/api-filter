@@ -1,23 +1,22 @@
 const express = require('express');
-const app = express();
+const cors = require('cors');
 const { getItems } = require('./api/services/get-items');
 const { filterItems } = require('./api/middleware/filter-items');
+
+const app = express();
+app.use(cors());
 
 app.get('/api/items', async (req, res) => {
 
     try{
-
-        let response = await getItems('vasos');
+        let response = await getItems(req.query);
         const data = filterItems(response.data);
-    
-        res.json({
-            status: 'OK',
-            data,
-        });
+        res.json(data);
     }catch(error){
         res.json({
             status: 'ERROR',
-            error
+            error,
+            data: []
         })
     }
 });

@@ -1,10 +1,10 @@
 const { axiosConfig } = require('./axios-config');
 const { getItemsUrl } = require('../config/config');
 
-const getItems = async (query) => {
+const getItems = async ({q}) => {
     return await axiosConfig.get(getItemsUrl, {
         params: {
-            q: query
+            q
         }
     });
 }
