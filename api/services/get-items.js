@@ -1,12 +1,16 @@
 const { axiosConfig } = require('./axios-config');
-const { getItemsUrl } = require('../config/config');
+const { getItemUrl } = require('../config/config');
 
 const getItems = async ({q}) => {
-    return await axiosConfig.get(getItemsUrl, {
-        params: {
-            q
-        }
-    });
+    try{
+        return await axiosConfig.get(getItemUrl, {
+            params: {
+                q
+            }
+        });
+    }catch(e){
+        throw e;
+    }
 }
 
 module.exports = {
