@@ -32,13 +32,11 @@ const filterItem = (item, description) => {
                 })
             },
             picture: secure_thumbnail,
-            condition: '',
+            condition: getCondition(item.attributes),
             free_shipping,
             sold_quantity,
             description: description.plain_text
         }
-
-        (getCondition(item.attributes));
 
         itemSanitized.item = parsedItem;
 

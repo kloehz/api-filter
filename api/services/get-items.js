@@ -1,9 +1,9 @@
 const { axiosConfig } = require('./axios-config');
-const { getItemUrl } = require('../config/config');
+const { getItemsUrl } = require('../config/config');
 
 const getItems = async ({q}) => {
     try{
-        return await axiosConfig.get(getItemUrl, {
+        return await axiosConfig.get(getItemsUrl, {
             params: {
                 q
             }
