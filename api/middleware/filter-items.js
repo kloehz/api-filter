@@ -20,9 +20,9 @@ const filterItems = (items) => {
         itemsSanitized.categories = categories ? categories : [];
     
         const products = items.results.map(({
-            id, title, prices, thumbnail, attributes, shipping, seller_address
+            id, title, price, currency_id, thumbnail, attributes, shipping, seller_address
         }) => {
-            const { currency, amount, decimals } = parsePrice(prices.prices[0])
+            const { currency, amount, decimals } = parsePrice({currency_id, price})
             const condition = getCondition(attributes);
     
             return productSanitized = {

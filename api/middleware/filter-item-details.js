@@ -17,7 +17,7 @@ const filterItem = (item, description) => {
             title,
             price,
             currency_id,
-            secure_thumbnail,
+            pictures,
             shipping: {free_shipping},
             sold_quantity
         } = item
@@ -27,11 +27,11 @@ const filterItem = (item, description) => {
             title,
             price: {
                 ...parsePrice({
-                    currency_id: currency_id,
-                    amount: price
+                    currency_id,
+                    price
                 })
             },
-            picture: secure_thumbnail,
+            picture: pictures[0].url,
             condition: getCondition(item.attributes),
             free_shipping,
             sold_quantity,
