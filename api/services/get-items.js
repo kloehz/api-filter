@@ -1,14 +1,18 @@
-const { axiosConfig } = require('./axios-config');
+const { axiosClient } = require('./axios-config');
 const { getItemsUrl } = require('../config/config');
+const { filterItems } = require('../utils/filter-items');
 
 const getItems = async ({q}) => {
     try{
-        return await axiosConfig.get(getItemsUrl, {
+        const response = await axiosClient.get(`/${getItemsUrl}`, {
             params: {
                 q
             }
         });
-    }catch(e){
+        const res = filterItems(response.data)
+
+        return res;
+    } catch(e) {
         throw e;
     }
 }

@@ -1,5 +1,5 @@
-const { parsePrice } = require('../utils/parse-price');
-const { getCondition } = require('../utils/get-condition');
+const { parsePrice } = require('./parse-price');
+const { getCondition } = require('./get-condition');
 
 const itemSanitized = {
     author: {

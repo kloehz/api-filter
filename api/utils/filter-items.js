@@ -1,5 +1,5 @@
-const { parsePrice } = require('../utils/parse-price');
-const { getCondition } = require('../utils/get-condition');
+const { parsePrice } = require('./parse-price');
+const { getCondition } = require('./get-condition');
 
 const itemsSanitized = {
     author: {
@@ -13,9 +13,6 @@ const itemsSanitized = {
 const filterItems = (items) => {
     // Filtro de categorias
     try {
-        if (!items.results.length) {
-            throw 'No se encontraron resultados'
-        }
         const categories = items.filters[0]?.values[0]?.path_from_root.map((e) => e.name);
         itemsSanitized.categories = categories ? categories : [];
     
@@ -40,7 +37,7 @@ const filterItems = (items) => {
             }
         });
     
-        itemsSanitized.items = products
+        itemsSanitized.items = products.slice(0,4);
         return itemsSanitized
 
     } catch( error ){
