@@ -1,8 +1,9 @@
 const express = require('express');
 const cors = require('cors');
-const { getItems } = require('./api/services/get-items');
-const { getItemDetails } = require('./api/services/get-item-details');
-const { json } = require('express');
+const { getItems } = require('./src/services/get-items');
+const { getItemDetails } = require('./src/services/get-item-details');
+const { port } = require('./config'); 
+
 
 const app = express();
 app.use(cors());
@@ -34,6 +35,7 @@ app.get('/api/items/:id', async (req, res) => {
     }
 });
 
-app.listen(9000, () => {
-    console.log('Servidor inicado en el puerto 9000');
+
+app.listen(port, () => {
+    console.log(`Servidor inicado en el puerto ${port}`);
 });
