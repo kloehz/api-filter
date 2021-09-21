@@ -1,5 +1,5 @@
 const { axiosClient } = require('./axios-config');
-const { getItemsUrl } = require('../config/config');
+const { getItemsUrl } = require('../config/constants');
 const { filterItems } = require('../utils/filter-items');
 
 const getItems = async ({q}) => {

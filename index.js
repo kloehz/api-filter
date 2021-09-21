@@ -4,7 +4,6 @@ const { getItems } = require('./src/services/get-items');
 const { getItemDetails } = require('./src/services/get-item-details');
 const { port } = require('./config'); 
 
-
 const app = express();
 app.use(cors());
 

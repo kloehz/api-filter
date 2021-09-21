@@ -1,8 +1,8 @@
 const axios = require('axios').default
-const { baseUrl } = require('../config/config')
+const { base_url } = require('../../config')
 
 const axiosClient = axios.create({
-    baseURL: baseUrl
+    baseURL: base_url
 });
 
 module.exports = {

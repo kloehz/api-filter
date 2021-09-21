@@ -1,5 +1,5 @@
 const { axiosClient } = require('./axios-config');
-const { getItemDescriptionUrl } = require('../config/config');
+const { getItemDescriptionUrl } = require('../config/constants');
 const { filterItem } = require('../utils/filter-item-details');
 
 
