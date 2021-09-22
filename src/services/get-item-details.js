@@ -2,7 +2,6 @@ const { axiosClient } = require('./axios-config');
 const { getItemDescriptionUrl } = require('../config/constants');
 const { filterItem } = require('../utils/filter-item-details');
 
-
 const getItemDetails = async (itemId) => {
     try{
         const item = await axiosClient.get(`/${getItemDescriptionUrl}${itemId}`);

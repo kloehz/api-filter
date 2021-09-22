@@ -15,6 +15,8 @@ const filterItems = (items) => {
     try {
         const categories = items.filters[0]?.values[0]?.path_from_root.map((e) => e.name);
         itemsSanitized.categories = categories ? categories : [];
+
+        items.results = items.results.slice(0,4);
     
         const products = items.results.map(({
             id, title, price, currency_id, thumbnail, attributes, shipping, seller_address
@@ -32,12 +34,12 @@ const filterItems = (items) => {
                 },
                 picture: thumbnail,
                 condition,
-                free_shiping: shipping.free_shipping,
+                free_shipping: shipping.free_shipping,
                 seller_address: seller_address.state.name
             }
         });
     
-        itemsSanitized.items = products.slice(0,4);
+        itemsSanitized.items = products;
         return itemsSanitized
 
     } catch( error ){
