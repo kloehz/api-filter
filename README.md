@@ -11,7 +11,7 @@ Este proyecto fue creado desde cero con `npm init` y se le adjunto:
 - axios
 
 
-## Como inicar el proyecto
+## Como iniciar el proyecto
 Clonar el proyecto copiar el contenido de `.env.example` a un nuevo archivo llamado `.env` ubicado en el mismo path.
 Ejecutar `npm i` para instalar sus paquetes, y `npm run dev` o `npm start`.
 
